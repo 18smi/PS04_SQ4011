@@ -3,11 +3,11 @@ import requests
 
 API_key = "076e88e5f1f1b7ad721209ba66e0f98b4f88840a50fa375a6ea0450af92a99b5"
 
-if len(sys.argv) != 2:
+if len(sys.argv) != 2:# invalid amount of arguments
     sys.exit()
 
 try:
-    float(sys.argv[1])
+    float(sys.argv[1])# if sys.argv[1] cant be converted to a float, exit
 except (ValueError, TypeError):
     sys.exit()
 else:
