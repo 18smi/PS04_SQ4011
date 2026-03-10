@@ -10,17 +10,17 @@ try:
     float(sys.argv[1])# if sys.argv[1] cant be converted to a float, exit
 except (ValueError, TypeError):
     sys.exit()
-else:
-    answer = requests.get("https://rest.coincap.io/v3/assets/bitcoin?apiKey=" + API_key)
-    string_answer = str(answer.content)
-    position = string_answer.find("priceUsd") + 11
 
-    string_extracted_float = ""
-    while string_answer[position] != '"':
-        string_extracted_float += string_answer[position]
-        position += 1
+answer = requests.get("https://rest.coincap.io/v3/assets/bitcoin?apiKey=" + API_key)
+string_answer = str(answer.content)
+position = string_answer.find("priceUsd") + 11
+
+string_extracted_float = ""
+while string_answer[position] != '"':
+    string_extracted_float += string_answer[position]
+    position += 1
     
     
-    print(f"${float(string_extracted_float):,.4f}")
+print(f"${float(string_extracted_float):,.4f}")
 
 
